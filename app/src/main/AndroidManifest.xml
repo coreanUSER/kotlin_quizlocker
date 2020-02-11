@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.stn.quizlocker">
+
     <!-- 권한을 요청하는 전통적인 방법 -->
     <!-- 외부저장소에 읽기, 쓰기 권한 요청, 앱 전용 데이터로 저장하는 경우 SDK 18 이후부터는 권한 요청이 필요 없음 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 부팅이 완료될 때 브로드캐스트 수신을 위한 권한 요청 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -12,18 +14,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PrefFragmentActivity">
+        <service
+            android:name=".LockScreenService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".ScreenOffExActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PrefExActivity">
-
-        </activity>
-        <activity android:name=".FileExActivity"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".PrefFragmentActivity"></activity>
+        <activity android:name=".PrefExActivity" />
+        <activity android:name=".FileExActivity" />
+        <activity android:name=".MainActivity" /> <!-- 암시적 인텐트로 실행되는 브로드캐스트 리시버 등록 -->
+        <!-- 암시적 허용이 가능한 리시버는 Manifest 에 선언해도 작동한다. -->
+        <receiver
+            android:name=".BootCompleteReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
