@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "question": "구리의\n기호는?",
+    "choice1": "Cu",
+    "choice2": "Gu",
+    "answer": "Cu"
+  },
+  {
+    "id": 2,
+    "question": "소금의\n기호는?",
+    "choice1": "NaCl",
+    "choice2": "Na",
+    "answer": "NaCl"
+  },
+  {
+    "id": 3,
+    "question": "산소의\n기호는?",
+    "choice1": "CO2",
+    "choice2": "O",
+    "answer": "O"
+  }
+]

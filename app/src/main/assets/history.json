@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "question": "한국전쟁의\n시작은?",
+    "choice1": "1950",
+    "choice2": "1953",
+    "answer": "1950"
+  },
+  {
+    "id": 2,
+    "question": "한국전쟁의\n휴전은?",
+    "choice1": "1953",
+    "choice2": "1955",
+    "answer": "1953"
+  },
+  {
+    "id": 3,
+    "question": "한국전쟁의\n피해자는?",
+    "choice1": "남한",
+    "choice2": "북한",
+    "answer": "남한"
+  }
+]

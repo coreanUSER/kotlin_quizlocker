@@ -7,8 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.preference.PreferenceManager
 import android.view.WindowManager
 import android.widget.SeekBar
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_quiz_locker.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -49,6 +51,9 @@ class QuizLockerActivity : AppCompatActivity() {
         // 반면 다른 리소스들은 성능을 위해 안드로이드가 자체적으로 '바이너리'형태로 변환한다.
         val json = assets.open("capital.json").reader().readText()
         val quizArray = JSONArray(json)
+
+//        val pref = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+//        val category = pref.getStringSet("category", null)
 
         // 퀴즈를 선택한다.
         quiz = quizArray.getJSONObject(Random().nextInt(quizArray.length()))
